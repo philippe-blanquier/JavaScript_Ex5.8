@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Exercice 5.8</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<form id="FormId" method="get" action="">
+			<fieldset>
+				<legend><strong>Formulaire</strong></legend>
+            <p>
+               <label for="firstName"></label>
+               <input type="text" 
+                      name="prénom" 
+                      id="firstName" 
+                      value="Tweety"
+                      >
+            </p>
+            <p>
+               <label for="age"></label>
+               <input type="number" 
+                      name="age" 
+                      id="age" 
+                      value="18" 
+                      >
+            </p>
+			</fieldset>
+      </form>
+      <button  type="button" onclick="cloneForm('FormId')">Clone</button>
+      <script type="text/javascript">
+         function cloneForm( tagIdName)
+         {
+            let srcTagId= document.getElementById(tagIdName);
+            if (srcTagId == null)
+            {
+               alert(`cloneForm(): '${tagIdName}' not found`);
+               return;
+            }
+            // Clone the form
+            let cloneId= srcTagId.cloneNode(true);
+            cloneId.id = "ClonedFromId-cloneNode";
+            // Modify some values
+            cloneId.firstName.value = "Syvester";
+            cloneId.age.value = 99;    
+            // Append the new form to the HTML file   
+            document.body.appendChild(cloneId);
+            } 
+      </script>
+   </body>
